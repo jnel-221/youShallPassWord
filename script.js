@@ -16,8 +16,8 @@ function writePassword() {
 
   if (numLength >=8 && numLength <= 128) {
    
-    alert("Please select from the following criteria: ");
-     //variables to hold user-selected password criteria
+    alert("Please select password criteria from the following pop-up windows.");
+     //run password criteria confirms if password length meets criteria, otherwise run else statement only
   var upperCase = confirm("Do you want uppercase letters?");
   var lowerCase = confirm("Do you want lowercase letters?");
   var nums =confirm("Do you want numbers?");
