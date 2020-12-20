@@ -5,8 +5,8 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   //variables to get password length from user and conditions to validate correct length
   //browser to refresh if incorrect length chosen
-  var length = prompt("Please select a password length between 8 and 128 characters");
-  var numLength =parseInt(length);
+  var promptLength = prompt("Please select a password length between 8 and 128 characters");
+  var numLength =parseInt(promptLength);
 
   //declare variables for password criteria outside of conditional statement:
   var upperCase;
@@ -22,10 +22,22 @@ function writePassword() {
   var lowerCase = confirm("Do you want lowercase letters?");
   var nums =confirm("Do you want numbers?");
   var speChar = confirm("Do you want special characters?");
-  console.log(upperCase);
+  // console.log(upperCase);
+  // console.log(lowerCase);
+  // console.log(nums);
+  // console.log(speChar);
+  while (upperCase !== true && lowerCase !== true && nums !== true && speChar!== true) {
+    alert("Please select password criteria from the following pop-up windows.");
+     //run password criteria confirms if password length meets criteria, otherwise run else statement only
+  var upperCase = confirm("Do you want uppercase letters?");
+  var lowerCase = confirm("Do you want lowercase letters?");
+  var nums =confirm("Do you want numbers?");
+  var speChar = confirm("Do you want special characters?");
+   console.log(upperCase);
   console.log(lowerCase);
   console.log(nums);
   console.log(speChar);
+  }
   } else {
    
     alert("Please enter a numeric value that is between 8 and 128 characters long");
