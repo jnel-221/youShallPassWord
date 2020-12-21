@@ -2,7 +2,7 @@
 var generateBtn = document.querySelector("#generate");
 
 //declare variables for password length
-var promptLength = ""
+var promptLength = "";
 var numLength;
 
 //declare variables for password character criteria
@@ -44,27 +44,32 @@ function writePassword() {
    speChar = confirm("Do you want special characters?");
   }
   } else {
-   //alert and reload page if user input does not meet criteria
+   //alert and reload page if password length does not meet criteria
     alert("Please enter a numeric value that is between 8 and 128 characters long.");
     location.reload();
   }
+  console.log(upperCase);
+  console.log(lowerCase);
+  console.log(nums);
+  console.log(speChar);
 
- ///now i need to figure out how I'll build my password generator.  taking the user criteria, I'll need to add logic that selects specified character types until the password is the correct length. Object vs arrays Then I'll need to print that on screen or alert via pop-up.
+  if (uppercase !== false){
+    console.log(uppercase);
+    // for (var i = 0; i <= numLength; i ++) {
+    //     randomCapital = Math.floor(Math.random() * charTypes.upperCase.length)
+    // };
+    // console.log(randomCapital);
+  }; 
 
- //possible while loop for gathering user-specified components for password length:
- //while (i <= numLength){
-   //if (uppercase !== false){
-        //pull random letter from upperCase array w/for loop and push to password array
-  // }
-     //do this for each component
- //}
 
+
+ 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
-}
+};
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
