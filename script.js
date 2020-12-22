@@ -60,7 +60,7 @@ function writePassword() {
     if (nums === true) {
       generatePassword(ints)
     }
-    if (nums === true) {
+    if (speChar === true) {
       generatePassword(chars)
     }
   };
