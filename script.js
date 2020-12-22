@@ -33,8 +33,7 @@ function writePassword() {
   numLength = parseInt(promptLength);
 
   if (numLength >=8 && numLength <= 128) {
-   //run alert/confirms if password length meets criteria, otherwise run else statement only
-  //  alert("Please select password criteria from the following pop-up windows."); 
+   //runconfirms if password length meets criteria, otherwise run else statement only
    upperCase = confirm("Do you want uppercase letters?");
    lowerCase = confirm("Do you want lowercase letters?");
    nums = confirm("Do you want numbers?");
@@ -85,10 +84,9 @@ function writePassword() {
       newPassWord.push(randomChar);
       console.log(newPassWord.length);
 
-     //concatinate items in new array 
-      console.log(newPassWord.join(''));
-    
-
+     //concatinate items in new array into string & print to page
+     password = newPassWord.join('');
+       console.log(password);
      };
     
   
