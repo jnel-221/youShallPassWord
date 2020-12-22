@@ -24,19 +24,20 @@ var ints = charTypes.numbers;
 var chars = charTypes.characters;
 //declare variable for new array that will hold password:
 var newPassWord = [];
+// var passWordLength = newPassWord.length;
 
 // Write password to the #password input
 function writePassword() {
   
   promptLength = prompt("Please select a password length between 8 and 128 characters");
-  numLength =parseInt(promptLength);
+  numLength = parseInt(promptLength);
 
   if (numLength >=8 && numLength <= 128) {
    //run alert/confirms if password length meets criteria, otherwise run else statement only
-   alert("Please select password criteria from the following pop-up windows."); 
+  //  alert("Please select password criteria from the following pop-up windows."); 
    upperCase = confirm("Do you want uppercase letters?");
    lowerCase = confirm("Do you want lowercase letters?");
-   nums =confirm("Do you want numbers?");
+   nums = confirm("Do you want numbers?");
    speChar = confirm("Do you want special characters?");
 
    //validate at least one password criteria was chosen; run alerts/confirms until one password criteria chosen
@@ -44,15 +45,16 @@ function writePassword() {
    alert("Please select password criteria from the following pop-up windows.");
    upperCase = confirm("Do you want uppercase letters?");
    lowerCase = confirm("Do you want lowercase letters?");
-   nums =confirm("Do you want numbers?");
+   nums = confirm("Do you want numbers?");
    speChar = confirm("Do you want special characters?");
   };
 
   for (var i =0; i < numLength; i++){
-    //need a way to stop the loop from going through the conditions once there are enough password characters
+    //need a way to stop the loop from going through the conditions once there are enough password characters; this break was working at first but then stopped;why?
     if (newPassWord.length === numLength){
       break;
-    }
+    } 
+
     if (upperCase === true) {
       generatePassword(caps);
     }
@@ -75,11 +77,17 @@ function writePassword() {
   
  
   function generatePassword (arr) {
+    //grab a random item from the object array
       var randomChar = arr[Math.floor(Math.random() * arr.length)];
       console.log(randomChar);
 
+    //push random item into empty array
       newPassWord.push(randomChar);
-      console.log(newPassWord);
+      console.log(newPassWord.length);
+
+     //concatinate items in new array 
+      console.log(newPassWord.join(''));
+    
 
      };
     
