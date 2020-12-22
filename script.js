@@ -49,9 +49,10 @@ function writePassword() {
   };
 
   for (var i =0; i < numLength; i++){
+    //need a way to stop the loop from going through the conditions once there are enough password characters
     
-    if (upperCase === true && i < numLength) {
-      generatePassword(caps);//once function written and validated, replace console log with function and pass 'caps' in as argument. 
+    if (upperCase === true) {
+      generatePassword(caps);
     }
     if (lowerCase === true) {
       generatePassword(lows)
