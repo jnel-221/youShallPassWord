@@ -18,11 +18,12 @@ var charTypes = {
   "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9],
   "characters": ["@", "#", "$", "%", "&", "*", "!"],
 }
-var caps = charTypes.upper.length;
-var lows = charTypes.lower.length;
-var ints = charTypes.numbers.length;
-var chars = charTypes.characters.length;
-
+var caps = charTypes.upper;
+var lows = charTypes.lower;
+var ints = charTypes.numbers;
+var chars = charTypes.characters;
+//declare variable for new array that will hold password:
+var newPassWord = [];
 
 // Write password to the #password input
 function writePassword() {
@@ -45,12 +46,12 @@ function writePassword() {
    lowerCase = confirm("Do you want lowercase letters?");
    nums =confirm("Do you want numbers?");
    speChar = confirm("Do you want special characters?");
-  }
+  };
 
   for (var i =0; i < numLength; i++){
     
     if (upperCase === true) {
-      console.log(upperCase)//once function written and validated, replace console log with function and pass 'caps' in as argument. 
+      generatePassword(caps);//once function written and validated, replace console log with function and pass 'caps' in as argument. 
     }
     if (lowerCase === true) {
       console.log(lowerCase)
@@ -61,32 +62,22 @@ function writePassword() {
     if (nums === true) {
       console.log(speChar)
     }
-  }
+  };
 
-  // console.log(upperCase);
-  // console.log(lowerCase);
-  // console.log(nums);
-  // console.log(speChar);
-
-  //maybe some conditional logic here for user choices if true, call function generate password(pull random item from array and push to new array); if false, nothimg happens.  If it's possible, perhaps there should be a for loop that will run this conditional logic until there is a password that meets the length specified by the user.  So new array.length === numLength
+  //maybe some conditional logic here for user choices if true, call function generate password(pull random item from array and push to new array); if false, nothimg happens.  If it's possible, perhaps there should be a for loop that will run this conditional logic until there is a password that meets the length specified by the user.  So newArray.length === numLength
   } else {
    //alert and reload page if password length does not meet criteria
     alert("Please enter a numeric value that is between 8 and 128 characters long.");
     location.reload();
-  }
+  };
   
-
-  if (upperCase !== false){
-    console.log(upperCase);
-    for (var i = 0; i <= numLength; i ++) {
-        randomCapital = Math.floor(Math.random() * charTypes.upper.length)
-    };
-    console.log(randomCapital);
-  }; 
-
-
-
  
+  function generatePassword (arr) {
+      var randomChar = arr[Math.floor(Math.random() * arr.length)];
+      console.log(randomChar);
+     };
+    
+  
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
