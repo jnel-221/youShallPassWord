@@ -41,7 +41,7 @@ function writePassword() {
 
    //validate at least one password criteria was chosen; run alerts/confirms until one password criteria chosen
   while (upperCase !== true && lowerCase !== true && nums !== true && speChar!== true) {
-   alert("Please select password criteria from the following pop-up windows.");
+   alert("Please select at least one password criteria from the following pop-up windows.");
    upperCase = confirm("Do you want uppercase letters?");
    lowerCase = confirm("Do you want lowercase letters?");
    nums = confirm("Do you want numbers?");
@@ -55,7 +55,7 @@ function writePassword() {
     } 
 
     if (upperCase === true) {
-      generatePassword(caps);
+      generatePassword(caps)
     }
     if (lowerCase === true) {
       generatePassword(lows)
@@ -85,8 +85,9 @@ function writePassword() {
       console.log(newPassWord.length);
 
      //concatinate items in new array into string & print to page
+     //rename this variable?  I was trying to link it to the var password below or somehow connect it to the final Password call on line 94, but I'm not sure if it's scoped right; may not even be necessary.
      password = newPassWord.join('');
-       console.log(password);
+      console.log(password);
      };
     
   
