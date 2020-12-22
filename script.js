@@ -50,7 +50,9 @@ function writePassword() {
 
   for (var i =0; i < numLength; i++){
     //need a way to stop the loop from going through the conditions once there are enough password characters
-    
+    if (newPassWord.length === numLength){
+      break;
+    }
     if (upperCase === true) {
       generatePassword(caps);
     }
@@ -75,6 +77,10 @@ function writePassword() {
   function generatePassword (arr) {
       var randomChar = arr[Math.floor(Math.random() * arr.length)];
       console.log(randomChar);
+
+      newPassWord.push(randomChar);
+      console.log(newPassWord);
+
      };
     
   
