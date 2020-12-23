@@ -54,16 +54,16 @@ function writePassword() {
       break;
     } 
 
-    if (upperCase === true) {
+    if (upperCase) {
       generatePassword(caps)
     }
-    if (lowerCase === true) {
+    if (lowerCase) {
       generatePassword(lows)
     }
-    if (nums === true) {
+    if (nums) {
       generatePassword(ints)
     }
-    if (speChar === true) {
+    if (speChar) {
       generatePassword(chars)
     }
   };
@@ -85,16 +85,18 @@ function writePassword() {
       console.log(newPassWord.length);
 
      //concatinate items in new array into string & print to page
-     //rename this variable?  I was trying to link it to the var password below or somehow connect it to the final Password call on line 94, but I'm not sure if it's scoped right; may not even be necessary.
-     password = newPassWord.join('');
+     //changed source code from var password = generatePassword() to var password = newPassWord.join('').
+      
+      var password = newPassWord.join('');
+      var passwordText = document.querySelector("#password");
       console.log(password);
+      passwordText.value = password;
+
+
      };
     
   
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
+  
 
 };
 
