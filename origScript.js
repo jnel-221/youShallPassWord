@@ -17,21 +17,17 @@ var charTypes = {
   "lower": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
   "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9],
   "characters": ["@", "#", "$", "%", "&", "*", "!"],
-  
 }
 var caps = charTypes.upper;
 var lows = charTypes.lower;
 var ints = charTypes.numbers;
 var chars = charTypes.characters;
-var charChoices =[];
 //declare variable for new array that will hold password:
 var newPassWord = [];
-
+// var passWordLength = newPassWord.length;
 
 // Write password to the #password input
 function writePassword() {
-
-
   
   promptLength = prompt("Please select a password length between 8 and 128 characters");
   numLength = parseInt(promptLength);
@@ -52,29 +48,25 @@ function writePassword() {
    speChar = confirm("Do you want special characters?");
   };
 
-//if i use this conditional logic, I think I'll have to build out every possible scenario.  I haven't figured out a way to join multiple arrays into one single array yet.
-  if (upperCase) {
-    charChoices = caps.concat(caps)
-  } 
-  if (lowerCase) {
-    charChoices = lows.concat(lows)
-  }
-  if (nums) {
-    charChoices = ints.concat(ints)
-  }
-  if (speChar) {
-  charChoices = chars.concat(chars)
-  }
- console.log(charChoices);
-  for (var i = 0; i < numLength; i++){
+  for (var i =0; i < numLength; i++){
     //need a way to stop the loop from going through the conditions once there are enough password characters; this break was working at first but then stopped;why?
     if (newPassWord.length === numLength){
-      console.log("password array now has enough characters ", newPassWord.length);
       break;
     } 
-    generatePassword();
-    
-  }
+
+    if (upperCase) {
+      generatePassword(caps)
+    }
+    if (lowerCase) {
+      generatePassword(lows)
+    }
+    if (nums) {
+      generatePassword(ints)
+    }
+    if (speChar) {
+      generatePassword(chars)
+    }
+  };
 
   } else {
    //alert and reload page if password length does not meet criteria
@@ -83,10 +75,9 @@ function writePassword() {
   };
   
  
-  function generatePassword () {
-    debugger;
+  function generatePassword (arr) {
     //grab a random item from the object array
-      var randomChar = charChoices[Math.floor(Math.random() * charChoices.length)];
+      var randomChar = arr[Math.floor(Math.random() * arr.length)];
       console.log(randomChar);
 
     //push random item into empty array
