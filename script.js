@@ -54,16 +54,16 @@ function writePassword() {
 
 //if i use this conditional logic, I think I'll have to build out every possible scenario.  I haven't figured out a way to join multiple arrays into one single array yet.
   if (upperCase) {
-    charChoices = caps.concat(caps)
+    charChoices = charChoices.concat(caps)
   } 
   if (lowerCase) {
-    charChoices = lows.concat(lows)
+    charChoices = charChoices.concat(lows)
   }
   if (nums) {
-    charChoices = ints.concat(ints)
+    charChoices = charChoices.concat(ints)
   }
   if (speChar) {
-  charChoices = chars.concat(chars)
+  charChoices = charChoices.concat(chars)
   }
  console.log(charChoices);
   for (var i = 0; i < numLength; i++){
@@ -84,7 +84,7 @@ function writePassword() {
   
  
   function generatePassword () {
-    debugger;
+    // debugger;
     //grab a random item from the object array
       var randomChar = charChoices[Math.floor(Math.random() * charChoices.length)];
       console.log(randomChar);
