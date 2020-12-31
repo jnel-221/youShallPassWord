@@ -67,7 +67,7 @@ function writePassword() {
   if (speChar) {
   charChoices = charChoices.concat(chars)
   }
- console.log(charChoices);
+//  console.log(charChoices);
   for (var i = 0; i < numLength; i++){
     
     if (newPassWord.length === numLength){
@@ -89,11 +89,11 @@ function writePassword() {
    
     //grab a random item from the charChoices array
       var randomChar = charChoices[Math.floor(Math.random() * charChoices.length)];
-      console.log(randomChar);
+      // console.log(randomChar);
 
     //push random item into password array
       newPassWord.push(randomChar);
-      console.log(newPassWord.length);
+      // console.log(newPassWord.length);
 
 
 
@@ -101,7 +101,7 @@ function writePassword() {
      //concatinate items in new array into string & print to page
       var password = newPassWord.join('');
       var passwordText = document.querySelector("#password");
-      console.log(password);
+      // console.log(password);
       passwordText.value = password;
 
 
