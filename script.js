@@ -16,15 +16,17 @@ var charTypes = {
   "upper": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
   "lower": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
   "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9],
-  "characters": ["@", "#", "$", "%", "&", "*", "!"],
+  "characters": ["@", "#", "$", "%", "&", "*", "!", "'", "(", ")", "+", ",", "-", ".", "/", ":", ";", "<", "?", "^"],
   
 }
 var caps = charTypes.upper;
 var lows = charTypes.lower;
 var ints = charTypes.numbers;
 var chars = charTypes.characters;
+//charChoices array will hold the arrays of characters chosen by the user.
 var charChoices =[];
-//declare variable for new array that will hold password:
+
+//newPassword array will hold random characters selected from the charChoices array:
 var newPassWord = [];
 
 
@@ -52,7 +54,7 @@ function writePassword() {
    speChar = confirm("Do you want special characters?");
   };
 
-//if i use this conditional logic, I think I'll have to build out every possible scenario.  I haven't figured out a way to join multiple arrays into one single array yet.
+//Constructs array based on user choices
   if (upperCase) {
     charChoices = charChoices.concat(caps)
   } 
@@ -67,9 +69,9 @@ function writePassword() {
   }
  console.log(charChoices);
   for (var i = 0; i < numLength; i++){
-    //need a way to stop the loop from going through the conditions once there are enough password characters; this break was working at first but then stopped;why?
+    
     if (newPassWord.length === numLength){
-      console.log("password array now has enough characters ", newPassWord.length);
+
       break;
     } 
     generatePassword();
@@ -84,18 +86,19 @@ function writePassword() {
   
  
   function generatePassword () {
-    // debugger;
-    //grab a random item from the object array
+   
+    //grab a random item from the charChoices array
       var randomChar = charChoices[Math.floor(Math.random() * charChoices.length)];
       console.log(randomChar);
 
-    //push random item into empty array
+    //push random item into password array
       newPassWord.push(randomChar);
       console.log(newPassWord.length);
 
-     //concatinate items in new array into string & print to page
+
+
      //changed source code from var password = generatePassword() to var password = newPassWord.join('').
-      
+     //concatinate items in new array into string & print to page
       var password = newPassWord.join('');
       var passwordText = document.querySelector("#password");
       console.log(password);
@@ -104,7 +107,7 @@ function writePassword() {
 
      };
     
-  
+  //application does not yet validate final password to ensure at least one character from each array is present.
   
 
 };
