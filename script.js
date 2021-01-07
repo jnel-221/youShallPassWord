@@ -5,12 +5,6 @@ var generateBtn = document.querySelector("#generate");
 var promptLength = "";
 var numLength;
 
-//declare variables for password character criteria
-var upperCase;
-var lowerCase;
-var nums;
-var speChar;
-
 //declare variable for object, and variables to hold object array lengths.
 var charTypes = {
   "upper": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
@@ -32,18 +26,15 @@ var newPassWord = [];
 
 // Write password to the #password input
 function writePassword() {
-
-
   
   promptLength = prompt("Please select a password length between 8 and 128 characters");
   numLength = parseInt(promptLength);
-
   if (numLength >=8 && numLength <= 128) {
-   //runconfirms if password length meets criteria, otherwise run else statement only
-   upperCase = confirm("Do you want uppercase letters?");
-   lowerCase = confirm("Do you want lowercase letters?");
-   nums = confirm("Do you want numbers?");
-   speChar = confirm("Do you want special characters?");
+  //runconfirms if password length meets criteria, otherwise run else statement only
+   var upperCase = confirm("Do you want uppercase letters?");
+   var lowerCase = confirm("Do you want lowercase letters?");
+   var nums = confirm("Do you want numbers?");
+   var speChar = confirm("Do you want special characters?");
 
    //validate at least one password criteria was chosen; run alerts/confirms until one password criteria chosen
   while (upperCase !== true && lowerCase !== true && nums !== true && speChar!== true) {
@@ -67,7 +58,7 @@ function writePassword() {
   if (speChar) {
   charChoices = charChoices.concat(chars)
   }
-//  console.log(charChoices);
+
   for (var i = 0; i < numLength; i++){
     
     if (newPassWord.length === numLength){
@@ -76,13 +67,9 @@ function writePassword() {
     } 
     generatePassword();
     
-  }
-
-  } else {
-   //alert and reload page if password length does not meet criteria
-    alert("Please enter a numeric value that is between 8 and 128 characters long.");
-    location.reload();
   };
+
+  }
   
  
   function generatePassword () {
@@ -103,15 +90,15 @@ function writePassword() {
       var passwordText = document.querySelector("#password");
       // console.log(password);
       passwordText.value = password;
-
-
+      
+      
      };
     
   //application does not yet validate final password to ensure at least one character from each array is present.
-  
-
+   //application does not yet re-set after password is generated so user can re-run it.
 };
 
+
 // Add event listener to generate button
+
 generateBtn.addEventListener("click", writePassword);
-//|| numLength == NaN)
